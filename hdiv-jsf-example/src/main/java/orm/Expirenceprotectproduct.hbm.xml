@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-08-13 22:26:27 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.xmlxsd.my.domain.Expirenceprotectproduct" table="expirenceprotectproduct" catalog="ag">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="plantprotectprroduct" class="com.xmlxsd.my.domain.Plantprotectprroduct" fetch="select">
+            <column name="idProduct" not-null="true" />
+        </many-to-one>
+        <many-to-one name="experience" class="com.xmlxsd.my.domain.Experience" fetch="select">
+            <column name="idExpirence" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

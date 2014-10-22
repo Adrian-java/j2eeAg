@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ag</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping resource="orm/Customer.hbm.xml" />
+        <mapping resource="orm/Fieldweed.hbm.xml" />
+        <mapping resource="orm/Task.hbm.xml" />
+        <mapping resource="orm/Cultivation.hbm.xml" />
+        <mapping resource="orm/Weedofplant.hbm.xml" />
+        <mapping resource="orm/Plantprotectprroduct.hbm.xml" />
+        <mapping resource="orm/Portionofprotectproduct.hbm.xml" />
+        <mapping resource="orm/Experience.hbm.xml" />
+        <mapping resource="orm/Plot.hbm.xml" />
+        <mapping resource="orm/Field.hbm.xml" />
+        <mapping resource="orm/Weed.hbm.xml" />
+        <mapping resource="orm/Employer.hbm.xml" />
+        <mapping resource="orm/Verification.hbm.xml" />
+        <mapping resource="orm/Customerexpirence.hbm.xml" />
+        <mapping resource="orm/Plant.hbm.xml" />
+        <mapping resource="orm/Stage.hbm.xml" />
+        <mapping resource="orm/Typeofexpirence.hbm.xml" />
+        <mapping resource="orm/Expirenceprotectproduct.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

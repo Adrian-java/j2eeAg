@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-08-13 22:26:27 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.xmlxsd.my.domain.Experience" table="experience" catalog="ag">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="typeofexpirence" class="com.xmlxsd.my.domain.Typeofexpirence" fetch="select">
+            <column name="idTypeOfExpirence" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employer" class="com.xmlxsd.my.domain.Employer" fetch="select">
+            <column name="idEmployer" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="30" not-null="true" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="30" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="30" not-null="true" />
+        </property>
+        <set name="customerexpirences" table="customerexpirence" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idExpirence" not-null="true" />
+            </key>
+            <one-to-many class="com.xmlxsd.my.domain.Customerexpirence" />
+        </set>
+        <set name="verifications" table="verification" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idExpirence" not-null="true" />
+            </key>
+            <one-to-many class="com.xmlxsd.my.domain.Verification" />
+        </set>
+        <set name="fields" table="field" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idExpirence" not-null="true" />
+            </key>
+            <one-to-many class="com.xmlxsd.my.domain.Field" />
+        </set>
+        <set name="expirenceprotectproducts" table="expirenceprotectproduct" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idExpirence" not-null="true" />
+            </key>
+            <one-to-many class="com.xmlxsd.my.domain.Expirenceprotectproduct" />
+        </set>
+    </class>
+</hibernate-mapping>

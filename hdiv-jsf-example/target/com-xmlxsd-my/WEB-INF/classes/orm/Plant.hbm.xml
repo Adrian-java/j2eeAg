@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-08-13 22:26:27 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.xmlxsd.my.domain.Plant" table="plant" catalog="ag">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="weed" class="com.xmlxsd.my.domain.Weed" fetch="select">
+            <column name="idWeed" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stage" class="com.xmlxsd.my.domain.Stage" fetch="select">
+            <column name="idStage" not-null="true" />
+        </many-to-one>
+        <many-to-one name="plot" class="com.xmlxsd.my.domain.Plot" fetch="select">
+            <column name="idPlot" not-null="true" />
+        </many-to-one>
+        <property name="growth" type="string">
+            <column name="growth" length="30" not-null="true" />
+        </property>
+        <set name="weedofplants" table="weedofplant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPlant" not-null="true" />
+            </key>
+            <one-to-many class="com.xmlxsd.my.domain.Weedofplant" />
+        </set>
+    </class>
+</hibernate-mapping>
